@@ -146,41 +146,42 @@ main(int argc, char *argv[]) {
 	VCM = ratio * DCMR * DCMR * DCMR / 3.0;
 	V_Gpc = 4.0 * M_PI * pow((0.001 * C / H0), 3.0) * VCM;
 
-	/*      //dsv output */
-	/*      printf("t(0)\t%13.3f\tGly\n" */
-	/*             "t(z)\t%13.3f\tGly\n" */
-	/*             "DLTT\t%13.3f\tGyr\n" */
-	/*             "DCMR\t%13.3f\tMpc\n" */
-	/*             "DCMR\t%13.3f\tGly\n" */
-	/*             "DA\t%13.3f\tMpc\n" */
-	/*             "DA\t%13.3f\tGly\n" */
-	/*             "scale\t%13.3f\tkpc/\"\n" */
-	/*             "V\t%13.3f\tGpc3\n" */
-	/*             "DL\t%13.3f\tMpc\n" */
-	/*             "DL\t%13.3f\tGly\n" */
-	/*             "mM\t%13.3f\t-\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr, */
-	/*             DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, */
-	/*             (5.0 * log10(DL_Mpc * 1000000) - 5.0) */
-	/*              ); */
-
-	// json output
-	printf("{\n");
-	printf("\t\"t(0)\":\"%.3f\",\n"
-	       "\t\"t(z)\":\"%.3f\",\n"
-	       "\t\"DLTT\":\"%.3f\",\n"
-	       "\t\"DCMR\":\"%.3f\",\n"
-	       "\t\"DCMR\":\"%.3f\",\n"
-	       "\t\"DA\":\"%.3f\",\n"
-	       "\t\"DA\":\"%.3f\",\n"
-	       "\t\"scale\":\"%.3f\",\"\n"
-	       "\t\"V\":\"%.3f\",\n"
-	       "\t\"DL\":\"%.3f\",\n"
-	       "\t\"DL\":\"%.3f\",\n"
-	       "\t\"mM\":\"%.3f\"\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr,
+	//dsv output
+	printf("variable\tvalue\tunits\n--------\t-----\t-----\n");
+	printf("t(0)\t%13.3f\tGly\n"
+	       "t(z)\t%13.3f\tGly\n"
+	       "DLTT\t%13.3f\tGyr\n"
+	       "DCMR\t%13.3f\tMpc\n"
+	       "DCMR\t%13.3f\tGly\n"
+	       "DA\t%13.3f\tMpc\n"
+	       "DA\t%13.3f\tGly\n"
+	       "scale\t%13.3f\tkpc/\"\n"
+	       "V\t%13.3f\tGpc3\n"
+	       "DL\t%13.3f\tMpc\n"
+	       "DL\t%13.3f\tGly\n"
+	       "mM\t%13.3f\t-\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr,
 	       DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr,
-	       (5.0 * log10(DL_Mpc * 1e6) - 5.0)
+	       (5.0 * log10(DL_Mpc * 1000000) - 5.0)
 		);
-	printf("}\n");
+
+	/*      // json output */
+	/*      printf("{\n"); */
+	/*      printf("\t\"t(0)\":\"%.3f\",\n" */
+	/*             "\t\"t(z)\":\"%.3f\",\n" */
+	/*             "\t\"DLTT\":\"%.3f\",\n" */
+	/*             "\t\"DCMR\":\"%.3f\",\n" */
+	/*             "\t\"DCMR\":\"%.3f\",\n" */
+	/*             "\t\"DA\":\"%.3f\",\n" */
+	/*             "\t\"DA\":\"%.3f\",\n" */
+	/*             "\t\"scale\":\"%.3f\",\"\n" */
+	/*             "\t\"V\":\"%.3f\",\n" */
+	/*             "\t\"DL\":\"%.3f\",\n" */
+	/*             "\t\"DL\":\"%.3f\",\n" */
+	/*             "\t\"mM\":\"%.3f\"\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr, */
+	/*             DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, */
+	/*             (5.0 * log10(DL_Mpc * 1e6) - 5.0) */
+	/*              ); */
+	/*      printf("}\n"); */
 
 	exit(0);
 }
