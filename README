@@ -1,0 +1,6 @@
+cocal
+=====
+
+cocal is a Cosmology Calculator, directly translated to C from Python version
+(http://www.astro.ucla.edu/~wright/CC.python), based on an online versoin
+(http://www.astro.ucla.edu/~wright/CosmoCalc.html)
