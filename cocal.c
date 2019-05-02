@@ -30,7 +30,7 @@ main(int argc, char *argv[]) {
 	double z, H0, Om, Ol;
 	double Or, Ok, DTT, DTT_Gyr, age, age_Gyr, zage, zage_Gyr, DCMR, DCMR_Mpc,
 		DCMR_Gyr, DA, DA_Mpc, DA_Gyr, kpc_DA, DL, DL_Mpc, DL_Gyr, V_Gpc, a, az,
-		adot, h, ratio, x, y, DCMT, VCM;
+		adot, h, ratio, x, y, DCMT, VCM, mM;
 
 	if((argc == 1) || (!strncmp("-h", argv[1], 3))) {
 		usage(argv[0]);
@@ -63,6 +63,7 @@ main(int argc, char *argv[]) {
 	DL = 0.0;	// luminosity distance
 	DL_Mpc = 0.0;
 	DL_Gyr = 0.0;	// DL in units of billions of light years
+	mM = 0.0; // distance modulus, m-M
 	V_Gpc = 0.0;
 	a = 1.0;	// 1/(1+z), the scale factor of the Universe
 	az = 0.5;	// 1/(1+z(object))
@@ -125,6 +126,7 @@ main(int argc, char *argv[]) {
 	DL = DA / (az * az);
 	DL_Mpc = (C / H0) * DL;
 	DL_Gyr = (Tyr / H0) * DL;
+	mM = 5.0 * log10(DL_Mpc * 1000000) - 5.0;
 
 	// comoving volume computation
 	ratio = 1.00;
@@ -160,28 +162,26 @@ main(int argc, char *argv[]) {
 	       "DL\t%13.3f\tMpc\n"
 	       "DL\t%13.3f\tGly\n"
 	       "mM\t%13.3f\t-\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr,
-	       DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr,
-	       (5.0 * log10(DL_Mpc * 1000000) - 5.0)
+	       DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, mM
 		);
 
-	/*      // json output */
-	/*      printf("{\n"); */
-	/*      printf("\t\"t(0)\":\"%.3f\",\n" */
-	/*             "\t\"t(z)\":\"%.3f\",\n" */
-	/*             "\t\"DLTT\":\"%.3f\",\n" */
-	/*             "\t\"DCMR\":\"%.3f\",\n" */
-	/*             "\t\"DCMR\":\"%.3f\",\n" */
-	/*             "\t\"DA\":\"%.3f\",\n" */
-	/*             "\t\"DA\":\"%.3f\",\n" */
-	/*             "\t\"scale\":\"%.3f\",\"\n" */
-	/*             "\t\"V\":\"%.3f\",\n" */
-	/*             "\t\"DL\":\"%.3f\",\n" */
-	/*             "\t\"DL\":\"%.3f\",\n" */
-	/*             "\t\"mM\":\"%.3f\"\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr, */
-	/*             DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, */
-	/*             (5.0 * log10(DL_Mpc * 1e6) - 5.0) */
-	/*              ); */
-	/*      printf("}\n"); */
+/* 	// json output */
+/* 	printf("{\n"); */
+/* 	printf("\t\"t(0)\": %.3f,\n" */
+/* 	       "\t\"t(z)\": %.3f,\n" */
+/* 	       "\t\"DLTT\": %.3f,\n" */
+/* 	       "\t\"DCMR\": %.3f,\n" */
+/* 	       "\t\"DCMR\": %.3f,\n" */
+/* 	       "\t\"DA\": %.3f,\n" */
+/* 	       "\t\"DA\": %.3f,\n" */
+/* 	       "\t\"scale\": %.3f,\n" */
+/* 	       "\t\"V\": %.3f,\n" */
+/* 	       "\t\"DL\": %.3f,\n" */
+/* 	       "\t\"DL\": %.3f,\n" */
+/* 	       "\t\"mM\": %.3f\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc, DCMR_Gyr, */
+/* 	       DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, mM */
+/* 		); */
+/* 	printf("}\n"); */
 
 	exit(0);
 }
