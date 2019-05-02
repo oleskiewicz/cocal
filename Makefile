@@ -1,14 +1,20 @@
 VERSION = 0.1
 
 CC      = gcc
-CFLAGS  = -std=c99 -O3 -Wall
-LDFLAGS = -lm
+CFLAGS  = -std=c99 -Wall -O2 -march=native
+LDFLAGS =
+LDLIBS  = -lm
 
-cocal: cocal.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -DVERSION="\"$(VERSION)\"" -o $@ $<
+SRC     = cocal.c
+BIN     = $(SRC:.c=)
+
+main: $(BIN)
 
 fmt:
-	indent cocal.c && rm -f -- 'cocal.c~'
+	indent $(SRC) && rm -f -- '$(SRC)~'
 
 clean:
-	rm -f cocal
+	rm -f $(BIN)
+
+$(BIN): $(SRC)
+	$(CC) $(LDFLAGS) $(CFLAGS) -DVERSION="\"$(VERSION)\"" -o $@ $< $(LDLIBS)
