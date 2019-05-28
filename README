@@ -2,8 +2,15 @@ cocal
 =====
 
 cocal is a Cosmology Calculator, directly translated to C from Python version
-(http://www.astro.ucla.edu/~wright/CC.python), based on an online versoin
+(http://www.astro.ucla.edu/~wright/CC.python), based on an online version
 (http://www.astro.ucla.edu/~wright/CosmoCalc.html)
+
+
+requirements
+------------
+
+standard UNIX tools and kv (https://src.oleskiewi.cz/kv) configuration reader
+
 
 usage
 -----
