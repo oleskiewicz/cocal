@@ -144,19 +144,18 @@ main(int argc, char *argv[]) {
 	VCM = ratio * DCMR * DCMR * DCMR / 3.0;
 	V_Gpc = 4.0 * M_PI * pow((0.001 * C / cosmo.H0), 3.0) * VCM;
 
-	printf("variable\tvalue\tunits\n--------\t-----\t-----\n"
-	       "t(0)\t%13.3f\tGly\n"
-	       "t(z)\t%13.3f\tGly\n"
-	       "DLTT\t%13.3f\tGyr\n"
-	       "DCMR\t%13.3f\tMpc\n"
-	       "DCMR\t%13.3f\tGly\n"
-	       "DA\t%13.3f\tMpc\n"
-	       "DA\t%13.3f\tGly\n"
-	       "scale\t%13.3f\tkpc/\"\n"
-	       "V\t%13.3f\tGpc3\n"
-	       "DL\t%13.3f\tMpc\n"
-	       "DL\t%13.3f\tGly\n"
-	       "mM\t%13.3f\t-\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc,
+	printf("t0    = %12.3f # age of the Universe [Gyr]\n"
+	       "tz    = %12.3f # time at redshift z [Gyr]\n"
+	       "DLTT  = %12.3f # time from redshift z [Gyr]\n"
+	       "DCMR  = %12.3f # comoving radial distance [Mpc]\n"
+	       "DCMR  = %12.3f # comoving radial distance [Gly]\n"
+	       "DA    = %12.3f # angular size distance [Mpc]\n"
+	       "DA    = %12.3f # angular size distance [Gly]\n"
+	       "scale = %12.3f # scale [kpc/\"]\n"
+	       "V     = %12.3f # volume [Gpc^3]\n"
+	       "DL    = %12.3f # luminosity distance [Mpc]\n"
+	       "DL    = %12.3f # luminosity distance [Gly]\n"
+	       "mM    = %12.3f # distance modulus m-M\n", age_Gyr, zage_Gyr, DTT_Gyr, DCMR_Mpc,
 	       DCMR_Gyr, DA_Mpc, DA_Gyr, kpc_DA, V_Gpc, DL_Mpc, DL_Gyr, mM);
 
 	return 0;
