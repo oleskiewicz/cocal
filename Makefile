@@ -1,4 +1,4 @@
-VERSION = 0.1
+VERSION = 0.2
 
 CC      = gcc
 CFLAGS  = -std=c99 -Wall -O2 -march=native
@@ -8,13 +8,10 @@ LDLIBS  = -lm
 SRC     = cocal.c
 BIN     = $(SRC:.c=)
 
-main: $(BIN)
-
-fmt:
-	indent $(SRC) && rm -f -- '$(SRC)~'
+all: $(BIN)
 
 clean:
 	rm -f $(BIN)
 
-$(BIN): $(SRC)
+%: %.c
 	$(CC) $(LDFLAGS) $(CFLAGS) -DVERSION="\"$(VERSION)\"" -o $@ $< $(LDLIBS)
