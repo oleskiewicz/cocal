@@ -2,19 +2,14 @@ cocal
 =====
 
 cocal is a Cosmology Calculator, directly translated to C from Python version
-(http://www.astro.ucla.edu/~wright/CC.python), based on an online version
-(http://www.astro.ucla.edu/~wright/CosmoCalc.html)
-
-
-requirements
-------------
-
-standard UNIX tools and kv (https://src.oleskiewi.cz/kv) configuration reader
+(http://www.astro.ucla.edu/~wright/CC.python).
 
 
 usage
 -----
 
-to calculate cosmological distances at redshift 1 for WMAP9 cosmology, run:
+to calculate cosmological measures at redshift 0.5 for WMAP9 cosmology, run:
+	./cocal 0.5 < ./wmap9.conf
 
-	sed 's/#.*//' ./wmap9.conf | ./cocal 1.0
+to get age of the Universe for multiple cosmologies:
+	for f in *.conf; do echo $f:; ./cocal 0.0 < $f | grep ^t0; echo; done
