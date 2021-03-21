@@ -1,4 +1,4 @@
-VERSION = 0.2
+VERSION = 0.3
 
 CC      = gcc
 CFLAGS  = -std=c99 -Wall -O2 -march=native
