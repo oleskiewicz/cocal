@@ -5,7 +5,7 @@ CFLAGS  = -std=c99 -Wall -O2 -march=native
 LDFLAGS =
 LDLIBS  = -lm
 
-SRC     = cocal.c
+SRC     = cosmo.c
 BIN     = $(SRC:.c=)
 
 all: $(BIN)

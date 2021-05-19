@@ -1,7 +1,7 @@
-cocal
+cosmo
 =====
 
-cocal is a Cosmology Calculator, directly translated to C from Python version
+cosmo is a Cosmology Calculator, directly translated to C from Python version
 (http://www.astro.ucla.edu/~wright/CC.python).
 
 
@@ -9,7 +9,7 @@ usage
 -----
 
 to calculate cosmological measures at redshift 0.5 for WMAP9 cosmology, run:
-	./cocal 0.5 < ./wmap9.conf
+	./cosmo 0.5 < ./wmap9.conf
 
 to get age of the Universe for multiple cosmologies:
-	for f in *.conf; do echo $f:; ./cocal 0.0 < $f | grep ^t0; echo; done
+	for f in *.conf; do echo $f:; ./cosmo 0.0 < $f | grep ^t0; echo; done
